@@ -1,2 +1,2 @@
 # RedFox
-CodeIgniter based Framework developed by Ingefox.
+Custom framework based on CodeIgniter, developed by Ingefox.
