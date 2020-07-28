@@ -3,11 +3,11 @@
 [![Generic badge](https://img.shields.io/badge/Version-1.0-green.svg)](https://shields.io/) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) 
 
 
-####In order to efficiently meet the performance and financial expectations of our customers, Ingefox has designed a development framework : <b>REDFOX</b>.
+In order to efficiently meet the performance and financial expectations of our customers, Ingefox has designed a development framework : <b>REDFOX</b>.
 
 ***
 
-#####This OpenSource framework embeds:
+This OpenSource framework embeds:
 
 * [![Generic badge](https://img.shields.io/badge/CodeIgniter-4.0.1-red.svg)](https://codeigniter4.github.io/)
 * [![Generic badge](https://img.shields.io/badge/Doctrine-2.7-orange.svg)](https://www.doctrine-project.org/)
