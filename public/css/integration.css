@@ -1,0 +1,111 @@
+/*
+//--------------------------------------------------------------------
+// Constants
+//--------------------------------------------------------------------
+*/
+
+:root {
+    --custom-main-color: #626262;
+    --bg-color-fo: #bdbdbd;
+    --bg-color-bo: #626262;
+
+    --bg-edit : #ffc107;
+    --bg-new  : green;
+    --bg-delete: red;
+    --bg-disabled: orange;
+    --bg-enabled: mediumseagreen;
+
+    --bg-notAvailable: gray;
+
+    --bg-datatab-bg-odd: lightgray; 
+    --bg-datatab-bg-even:white; 
+
+}
+
+.bg-custom{
+    background-color: var(--custom-main-color);
+    color:white;
+}
+
+.btn-custom{
+    background-color: var(--custom-main-color);
+    color:white;
+}
+
+.table-striped tr:nth-child(odd) {
+    background-color:var(--bg-datatab-bg-odd) !important;
+}
+
+.table-striped tr:nth-child(even) {
+    background-color:var(--bg-datatab-bg-even) !important;
+}
+
+
+.btn-edit{
+    background-color: var(--bg-edit);
+    color:white;
+}
+
+.btn-add{
+    background-color: var(--bg-new);
+    color:white;
+}
+
+.btn-delete{
+    background-color: var(--bg-delete);
+    color:white;
+}
+
+.btn-disabled{
+    background-color: var(--bg-disabled);
+    color:white;
+}
+
+.btn-enabled{
+    background-color: var(--bg-enabled);
+    color:white;
+}
+
+
+.btn-notAvailable{
+    background-color: var(--bg-notAvailable);
+    color:white;
+}
+
+.invalid-feedback{
+    display: block;
+}
+
+
+.rf-container{
+    margin: 50px auto;
+    padding: 30px;
+    max-width: fit-content;
+    display: table;
+}
+
+.rf-footer {
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    padding: 10px 30px 10px 5px;
+    font-size: small;
+}
+
+table.dataTable tbody td {
+    vertical-align: middle;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.rf-nav-item{
+    display: block;
+    padding: .5rem .5rem;
+}
+
+.noHover{
+    pointer-events: none !important;
+}
