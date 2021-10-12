@@ -9,7 +9,7 @@ class C_DatabaseManager extends RF_Controller
 {
 	public function index()
 	{
-		return render("RFCore\Views\V_DatabaseManager", ['title' => 'Database Manager'], [], 'LAYOUT_BO');
+		return render("RFCore\Views\V_DatabaseManager", ['title' => 'Database Manager'], [], LAYOUT_BO);
     }
 
 

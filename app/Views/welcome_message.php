@@ -5,11 +5,11 @@
 	<title>Welcome to CodeIgniter 4!</title>
 	<meta name="description" content="The small framework with powerful features">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+	<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
 	<!-- STYLES -->
 
-		<style {csp-style-nonce}>
+	<style {csp-style-nonce}>
 		* {
 			transition: background-color 300ms ease, color 300ms ease;
 		}
@@ -43,7 +43,7 @@
 			text-align: right;
 		}
 		header li {
-				display: inline-block;
+			display: inline-block;
 		}
 		header li a {
 			border-radius: 5px;
@@ -51,7 +51,7 @@
 			display: block;
 			height: 44px;
 			text-decoration: none;
-			}
+		}
 		header li.menu-item a {
 			border-radius: 5px;
 			margin: 5px 0;
@@ -106,8 +106,8 @@
 		}
 		header .heroe h2 {
 			font-size: 1.5rem;
-				font-weight: 300;
-			}
+			font-weight: 300;
+		}
 		section {
 			margin: 0 auto;
 			max-width: 1100px;
@@ -152,7 +152,7 @@
 		}
 		footer {
 			background-color: rgba(221, 72, 20, .8);
-				text-align: center;
+			text-align: center;
 		}
 		footer .environment {
 			color: rgba(255, 255, 255, 1);
@@ -190,8 +190,8 @@
 				background-color: rgba(221, 72, 20, .7);
 				color: rgba(255, 255, 255, .8);
 			}
-			}
-		</style>
+		}
+	</style>
 </head>
 <body>
 
@@ -223,7 +223,7 @@
 
 		<h2>The small framework with powerful features</h2>
 
-			</div>
+	</div>
 
 </header>
 
@@ -233,7 +233,7 @@
 
 	<h1>About this page</h1>
 
-				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+	<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 	<p>If you would like to edit this page you will find it located at:</p>
 
@@ -295,14 +295,14 @@
 
 		<p>Environment: <?= ENVIRONMENT ?></p>
 
-			</div>
+	</div>
 
 	<div class="copyrights">
 
 		<p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
 			open source licence.</p>
 
-		</div>
+	</div>
 
 </footer>
 

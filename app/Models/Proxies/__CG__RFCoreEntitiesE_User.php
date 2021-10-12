@@ -26,7 +26,7 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
@@ -66,10 +66,10 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password', 'roles', 'firstName', 'lastName', 'address', 'addressCplt', 'city', 'cp', 'phone'];
+            return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password', 'roles', 'securityToken', 'cookieToken', 'securityTokenExpiration', 'isActive', 'firstname', 'lastname', 'phone', 'CGUValidated', 'CGUValidatedDate'];
         }
 
-        return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password', 'roles', 'firstName', 'lastName', 'address', 'addressCplt', 'city', 'cp', 'phone'];
+        return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password', 'roles', 'securityToken', 'cookieToken', 'securityTokenExpiration', 'isActive', 'firstname', 'lastname', 'phone', 'CGUValidated', 'CGUValidatedDate'];
     }
 
     /**
@@ -179,6 +179,17 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     /**
      * {@inheritDoc}
      */
+    public function update($params)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'update', [$params]);
+
+        return parent::update($params);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getId()
     {
         if ($this->__isInitialized__ === false) {
@@ -189,28 +200,6 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setId($id): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
-
-        parent::setId($id);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPassword(string $pass)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$pass]);
-
-        return parent::setPassword($pass);
     }
 
     /**
@@ -238,17 +227,6 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     /**
      * {@inheritDoc}
      */
-    public function setRoles($roles): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', [$roles]);
-
-        parent::setRoles($roles);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getEmail()
     {
 
@@ -260,144 +238,56 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     /**
      * {@inheritDoc}
      */
-    public function setEmail($email): void
+    public function getSecurityToken()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSecurityToken', []);
 
-        parent::setEmail($email);
+        return parent::getSecurityToken();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getFirstName()
+    public function getSecurityTokenExpiration()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFirstName', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSecurityTokenExpiration', []);
 
-        return parent::getFirstName();
+        return parent::getSecurityTokenExpiration();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setFirstName($firstName): void
+    public function getIsActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstName', [$firstName]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsActive', []);
 
-        parent::setFirstName($firstName);
+        return parent::getIsActive();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getLastName()
+    public function getFirstname()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastName', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFirstname', []);
 
-        return parent::getLastName();
+        return parent::getFirstname();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setLastName($lastName): void
+    public function getLastname()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastName', [$lastName]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastname', []);
 
-        parent::setLastName($lastName);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAddress()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', []);
-
-        return parent::getAddress();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAddress($address): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', [$address]);
-
-        parent::setAddress($address);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAddressCplt()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddressCplt', []);
-
-        return parent::getAddressCplt();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAddressCplt($addressCplt): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddressCplt', [$addressCplt]);
-
-        parent::setAddressCplt($addressCplt);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCity()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', []);
-
-        return parent::getCity();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCity($city): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', [$city]);
-
-        parent::setCity($city);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCp()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCp', []);
-
-        return parent::getCp();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCp($cp): void
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCp', [$cp]);
-
-        parent::setCp($cp);
+        return parent::getLastname();
     }
 
     /**
@@ -414,23 +304,67 @@ class E_User extends \RFCore\Entities\E_User implements \Doctrine\ORM\Proxy\Prox
     /**
      * {@inheritDoc}
      */
-    public function setPhone($phone): void
+    public function getCookieToken()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', [$phone]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCookieToken', []);
 
-        parent::setPhone($phone);
+        return parent::getCookieToken();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function update($params)
+    public function isCGUValidated(): bool
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'update', [$params]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isCGUValidated', []);
 
-        return parent::update($params);
+        return parent::isCGUValidated();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCGUValidatedDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCGUValidatedDate', []);
+
+        return parent::getCGUValidatedDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProperties()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperties', []);
+
+        return parent::getProperties();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProperty($propName, $asArray = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperty', [$propName, $asArray]);
+
+        return parent::getProperty($propName, $asArray);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDateProperty($propName, $dateString)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateProperty', [$propName, $dateString]);
+
+        return parent::setDateProperty($propName, $dateString);
     }
 
 }

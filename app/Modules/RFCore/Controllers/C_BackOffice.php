@@ -21,7 +21,7 @@ class C_BackOffice extends RF_Controller
 		// if a user is already logged in, the home page is loaded
 		if (session()->has('logged_in_redfox') && session()->get('logged_in_redfox')){
 			$M_ModuleManager = new M_ModuleManager();
-			$ret = render(BO_HOME_PAGE, ['title' => 'Accueil', 'RFVersion' => $M_ModuleManager->getRedFoxVersion()], [], 'LAYOUT_BO');
+			$ret = render(BO_HOME_PAGE, ['title' => 'Accueil', 'RFVersion' => $M_ModuleManager->getRedFoxVersion()], [], LAYOUT_BO);
 		}
 		// Otherwise, the login page is displayed
 

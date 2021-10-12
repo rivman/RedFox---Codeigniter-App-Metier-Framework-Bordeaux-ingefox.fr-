@@ -2,7 +2,7 @@
 	<h3>Gestion des utilisateurs BackOffice </h3>&nbsp;
             <br>
 	<button class="btn btn-success" style="margin-bottom: 10px;margin-left: 20px;"
-			onclick="openModal('<?php echo base_url("RF-BackOffice/RegisterBO") ?>', 'Ajouter un utilisateur')"><i
+			onclick="openModal('<?php echo base_url("RF-BackOffice/BOUsers/RegisterBO") ?>', 'Ajouter un utilisateur')"><i
 			class="fas fa-user-plus text-white"></i> Ajouter
 	</button>
 	<button class="btn btn-success" style="margin-bottom: 10px;margin-left: 10px;" onclick="reloadUsersTable()"><i
@@ -14,7 +14,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nom d'utilisateur</th>
+                    <th>Adresse email</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -25,7 +25,7 @@
     $(document).ready(function() {
         userTable = $('#users-table').DataTable({
             "ajax": {
-                "url": "<?php echo base_url("RF-BackOffice/getUserList")?>",
+                "url": "<?php echo base_url("RF-BackOffice/BOUsers/getUserList")?>",
                 "type": "POST",
                 "dataType": "json"
             },
@@ -34,7 +34,7 @@
             },
             "columns": [
                 {"data": "id"},
-                {"data": "username"}
+                {"data": "email"}
             ],
             "columnDefs": [
                 {
@@ -43,10 +43,10 @@
                     'className': 'dt-center',
                     'render': function (data, type, full, meta) {
                         if (<?php echo session()->get('id'); ?> !== full['id']) {
-                            return '<button class="btn btn-danger" type="button" onclick="deleteUser(\'' + full['username'] + '\')"><i class="fas fa-trash-alt text-white"></i></button> <button class="btn btn-warning" type="button" onclick="openModal(\'<?php echo base_url("RF-BackOffice/EditUserBO")?>\', \'Modifier un utilisateur\',{\'id\':\'' + full['id'] + '\'})"><i class="fas fa-user-edit text-white"></i></button>';
+                            return '<button class="btn btn-danger" type="button" onclick="deleteUser(\'' + full['email'] + '\')"><i class="fas fa-trash-alt text-white"></i></button> <button class="btn btn-warning" type="button" onclick="openModal(\'<?php echo base_url("RF-BackOffice/BOUsers/EditUserBO")?>\', \'Modifier un utilisateur\',{\'id\':\'' + full['id'] + '\'})"><i class="fas fa-user-edit text-white"></i></button>';
                         }
                     else {
-                            return '<button class="btn btn-secondary" type="button" onclick="alert(\'Vous ne pouvez pas supprimer votre compte.\')"><i class="fas fa-trash-alt text-white"></i></button> <button class="btn btn-warning" type="button" onclick="openModal(\'<?php echo base_url("RF-BackOffice/EditUserBO")?>\', \'Modifier un utilisateur\',{\'id\':\'' + full['id'] + '\'})"><i class="fas fa-user-edit text-white"></i></button>';
+                            return '<button class="btn btn-secondary" type="button" onclick="alert(\'Vous ne pouvez pas supprimer votre compte.\')"><i class="fas fa-trash-alt text-white"></i></button> <button class="btn btn-warning" type="button" onclick="openModal(\'<?php echo base_url("RF-BackOffice/BOUsers/EditUserBO")?>\', \'Modifier un utilisateur\',{\'id\':\'' + full['id'] + '\'})"><i class="fas fa-user-edit text-white"></i></button>';
                         }
                     }
                 }
@@ -54,14 +54,14 @@
         });
     } );
 
-    function deleteUser(username) {
-        let answer = window.confirm("Êtes-vous sûr de vouloir supprimer l'utilisateur '" + username + "' ?");
+    function deleteUser(email) {
+        let answer = window.confirm("Êtes-vous sûr de vouloir supprimer l'utilisateur '" + email + "' ?");
         if (answer) {
             let data = {
-                'url' : '<?php echo base_url("RF-BackOffice/deleteUser")?>',
+                'url' : '<?php echo base_url("RF-BackOffice/BOUsers/deleteUser")?>',
                 'type' : 'post',
                 "dataType": "json",
-                'data': {'username' : username},
+                'data': {'email' : email},
                 'callBack' : function (ret) {
                     if (ret['status'] === 'ok') {
                         userTable.ajax.reload();

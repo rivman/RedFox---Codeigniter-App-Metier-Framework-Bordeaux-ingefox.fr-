@@ -2,19 +2,23 @@
 /**
  * @var array $errors
  * @var array $roles_cb
+ * @var E_BOUser $user
  */
+
+use RFCore\Entities\E_BOUser;
+
 ?>
 
 <form id="formEditBOUser" accept-charset="utf-8">
     <input name="id" type="hidden" value="<?php echo set_value('id'); ?>">
         <div class="form-group">
-            <label>Nom d'utilisateur</label>
+            <label>Adresse email</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text bg-<?php echo THEME_COLOR; ?>"> <i class="fa fa-user text-white"></i> </div>
                 </div>
-                <input name="username" class="<?php if (isset($errors['username']))echo "is-invalid";?> form-control" placeholder="Nom d'utilisateur" type="text" value="<?php echo set_value('username'); ?>">
-                <?php if (isset($errors['username']))echo "<div class=\"invalid-feedback\" role=\"alert\">".$errors['username']."</div>"; ?>
+                <input name="email" class="<?php if (isset($errors['email']))echo "is-invalid";?> form-control" placeholder="Adresse email" type="email" value="<?php echo (isset($user)) ? $user->getEmail():set_value('email'); ?>">
+                <?php if (isset($errors['email']))echo "<div class=\"invalid-feedback\" role=\"alert\">".$errors['email']."</div>"; ?>
             </div>
         </div>
         <div class="form-group">
@@ -65,7 +69,7 @@
                 let pass_conf = pass_confField.val();
                 pass_confField.val(sha256(pass_conf));
             }
-            loadHTML('<?php echo base_url('RF-BackOffice/EditUserBO')?>', form.serialize(), form.parent());
+            loadHTML('<?php echo base_url('RF-BackOffice/BOUsers/EditUserBO')?>', form.serialize(), form.parent());
             e.preventDefault();
         });
     });

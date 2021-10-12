@@ -1,7 +1,17 @@
 <?php
 
+use CodeIgniter\HTTP\RedirectResponse;
+
 if ( ! function_exists('render'))
 {
+    /**
+     * @param string $view
+     * @param array $data
+     * @param array $options
+     * @param string $layout
+     * @param bool $isFile
+     * @return RedirectResponse|string
+     */
     function render(string $view, array $data = [], array $options = [], string $layout = LAYOUT, $isFile = true)
     {
         if (CI_DEBUG && !session()->get('logged_in_redfox') && !in_array($view,AUTHORIZED_URLS_NO_SESSION_BO)){

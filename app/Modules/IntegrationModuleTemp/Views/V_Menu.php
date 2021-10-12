@@ -1,15 +1,26 @@
 <?php
 
 $menu = '';
+
 switch (session()->get('roles')){
 	case ROLE_ADMIN:
-		$link = base_url('Users/manageUser');
-		$active = (current_url() == $link) ? 'active':'';
-		$menu .= '<li class="nav-item">';
-		$menu .= '<a class="nav-link '.$active.'" href="'.$link.'" role="button" aria-expanded="false">Gestion des utilisateurs</a>';
-		$menu .= '</li>';
+		$link = base_url();
+		$active = (current_url() !== $link.'/') ? '':'rf-menu-item-active';
+		$menu .= '<a href="'.$link.'" class="rf-menu-item">';
+		$menu .= '<div class="rf-menu-item-div '.$active.'">';
+		$menu .= '<div class="rf-menu-item-logo"><i class="fas fa-home rf-menu-item-logo" ></i></div>';
+		$menu .= '<span class="rf-menu-item-title">Accueil</span>';
+		$menu .= '</div>';
+		$menu .= '</a>';
 
-		break;
+		$link = base_url('Users/manage');
+		$active = (strpos(current_url(),$link) === false) ? '':'rf-menu-item-active';
+		$menu .= '<a href="'.$link.'" class="rf-menu-item">';
+		$menu .= '<div class="rf-menu-item-div '.$active.'">';
+		$menu .= '<div class="rf-menu-item-logo"><i class="fas fa-users-cog"></i></i></div>';
+		$menu .= '<span class="rf-menu-item-title">Gestion des utilisateurs</span>';
+		$menu .= '</div>';
+		$menu .= '</a>';
 }
 
 echo $menu;

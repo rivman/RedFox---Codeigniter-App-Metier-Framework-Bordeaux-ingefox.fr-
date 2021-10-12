@@ -12,7 +12,7 @@ class C_ModuleManager extends RF_Controller
 {
 	public function index()
 	{
-		return render("RFCore\Views\V_ModuleManager", ['title' => 'Modules Manager'], [], 'LAYOUT_BO');
+		return render("RFCore\Views\V_ModuleManager", ['title' => 'Modules Manager'], [], LAYOUT_BO);
 	}
 
     ////////////////////////////////////////////////////////////////////////
@@ -422,6 +422,6 @@ class C_ModuleManager extends RF_Controller
                            ]]],
                         'formScript' => view('RFCore\Views\Scripts\S_moduleDownloader', $selectedValues)];
 
-        return rfform($entityForm, $data, 'LAYOUT_BO');
+        return rfform($entityForm, $data, LAYOUT_BO);
     }
 }

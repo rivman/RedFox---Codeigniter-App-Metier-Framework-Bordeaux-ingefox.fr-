@@ -33,8 +33,14 @@ class RF_Entity
             switch(gettype($this->$prop))
             {
                 case "integer":
+                    if(in_array($prop, $this->nullableProperties) && ($value===null))
+                {
+                    $this->$prop = null;
+                }else{
                     // convert to int
                     $this->$prop = intval($value);
+                }
+
                 break;
                 case "boolean":
                     // convert to int
@@ -63,7 +69,7 @@ class RF_Entity
         foreach ($this as $prop=>$value) {
             if( ($prop != 'nullableProperties') && 
                 !in_array($prop, $this->nullableProperties) && 
-                ($value !== 0 && $value==null))
+                ($value===null))
             { 
                 throw new Exception("Property '" . $prop . "' of class '".static::class."' cannot be null.");
             }

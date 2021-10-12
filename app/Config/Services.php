@@ -1,10 +1,10 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 use App\Libraries\Doctrine;
-use CodeIgniter\Config\Services as CoreServices;
-use CodeIgniter\Config\BaseConfig;
-
-require_once SYSTEMPATH . 'Config/Services.php';
+use CodeIgniter\Config\BaseService;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Services Configuration file.
@@ -19,21 +19,20 @@ require_once SYSTEMPATH . 'Config/Services.php';
  * method format you should use for your service methods. For more examples,
  * see the core Services file at system/Config/Services.php.
  */
-class Services extends CoreServices
+class Services extends BaseService
 {
-
-	//    public static function example($getShared = true)
-	//    {
-	//        if ($getShared)
-	//        {
-	//            return static::getSharedInstance('example');
-	//        }
+	// public static function example($getShared = true)
+	// {
+	//     if ($getShared)
+	//     {
+	//         return static::getSharedInstance('example');
+	//     }
 	//
-	//        return new \CodeIgniter\Example();
-	//    }
+	//     return new \CodeIgniter\Example();
+	// }
 
     //DOCTRINE SERVICE CLASS
-    public static function doctrine($getShared = false)
+    public static function doctrine($getShared = false): ?EntityManager
     {
         if (! $getShared)
         {

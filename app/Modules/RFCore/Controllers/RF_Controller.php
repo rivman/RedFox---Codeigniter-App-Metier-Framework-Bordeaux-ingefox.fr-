@@ -42,4 +42,15 @@ class RF_Controller extends Controller
         }
         return $rolesCB;
     }
+
+
+    /**
+     * Convert the mimeType to a file extension 
+     * @param string $mime
+     * @return string the file extension associated to the mimeType 
+     */
+    public function mimeTypeToFileExtension($mime)
+    {
+        return isset(MIME_MAP[$mime]) ? MIME_MAP[$mime] : '';
+    }
 }

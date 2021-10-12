@@ -138,7 +138,7 @@ class C_BOUser extends RF_Controller
                 $options['errors'] = ['password' => 'Identifiants incorrects'];
             }
         }
-        return render($view, $options, [], 'LAYOUT_BO');
+        return render($view, $options, [], LAYOUT_BO);
     }
 
     /**
@@ -242,7 +242,7 @@ class C_BOUser extends RF_Controller
         return render("RFCore\Views\V_UserManagerBO", [
             'title' => 'Gestion des utilisateurs',
             'script' => self::ENCRYPTION_URL
-        ], [], 'LAYOUT_BO');
+        ], [], LAYOUT_BO);
     }
 
     public function getUserList(){

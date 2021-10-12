@@ -47,7 +47,7 @@ class M_BOUser extends RF_Model
      */
     public function addUser($user){
         $ret = SC_INTEGRATION_USER_ALREADY_EXIST;
-        if ($this->repository->findOneBy(array("username" => $user->getEmail())) == null){
+        if ($this->repository->findOneBy(array("email" => $user->getEmail())) == null){
             try {
                 parent::$em->persist($user);
                 parent::$em->flush();

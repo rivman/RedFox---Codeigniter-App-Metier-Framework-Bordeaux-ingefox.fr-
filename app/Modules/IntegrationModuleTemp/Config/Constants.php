@@ -20,19 +20,19 @@ define('PROJECT_ID', 'RedFox');
 define('THEME_COLOR', 'custom'); // link to Boostrap
 define('THEME_COLOR_CUSTOM', '#FB6D01'); // link to Boostrap
 
-define('PROJECT_LOGO', 'img/Logo Ingefox Round v2.png');
+define('PROJECT_LOGO', 'public/img/Logo Ingefox Round v2.png');
 define('PROJECT_LOGO_MAINTENANCE', 'img/logo-red.png');
 
 define('HOME_PAGE', INTEGRATION_BASE_MODULE.'\Views\V_Home');
 define('LOGIN_PAGE', INTEGRATION_BASE_MODULE.'\Views\V_Login');
-define('REGISTER_PAGE', INTEGRATION_BASE_MODULE.'\Views\Users\V_UserRegister');
+define('REGISTER_PAGE', 'RFCore\Views\Users\V_UserRegisterForm');
 
-define('FORM_FORGOTTEN_PWD_STEP_1',INTEGRATION_BASE_MODULE.'\Views\Users\V_UserForgottenPwdStep1');
-define('FORM_FORGOTTEN_PWD_STEP_2',INTEGRATION_BASE_MODULE.'\Views\Users\V_UserForgottenPwdStep2');
-define('FORM_FORGOTTEN_PWD_STEP_3',INTEGRATION_BASE_MODULE.'\Views\Users\V_UserForgottenPwdStep3');
-define('FORM_FORGOTTEN_PWD_STEP_4',INTEGRATION_BASE_MODULE.'\Views\Users\V_UserForgottenPwdStep4');
+define('FORM_FORGOTTEN_PWD_STEP_1','RFCore\Views\Users\V_UserForgottenPwdStep1');
+define('FORM_FORGOTTEN_PWD_STEP_2','RFCore\Views\Users\V_UserForgottenPwdStep2');
+define('FORM_FORGOTTEN_PWD_STEP_3','RFCore\Views\Users\V_UserForgottenPwdStep3');
+define('FORM_FORGOTTEN_PWD_STEP_4','RFCore\Views\Users\V_UserForgottenPwdStep4');
 
-define('FORM_NEW_PWD',INTEGRATION_BASE_MODULE.'\Views\Users\V_UserNewPwdForm');
+define('FORM_NEW_PWD','RFCore\Views\Users\V_UserNewPwdForm');
 
 
 define('AUTHORIZED_URLS_NO_SESSION',[
@@ -43,6 +43,13 @@ define('AUTHORIZED_URLS_NO_SESSION',[
 	FORM_FORGOTTEN_PWD_STEP_4,
 	FORM_NEW_PWD
 ]);
+
+define('TOAST_OK',1);
+define('TOAST_ERROR',TOAST_OK+1);
+define('TOAST_DEFAULT',TOAST_ERROR+1);
+
+define('TOAST_DEFAULT_DELAY',5000);
+define('TOAST_REFRESHING_DELAY',5);
 
 //--------------------------------------------------------------------
 // ROLES
@@ -59,6 +66,11 @@ define('ROLES_ARRAY_STR',[
 
 define('VIEW_MENU', INTEGRATION_BASE_MODULE.'\Views\V_Menu');
 
+
+// Constants files import for ComFox and MailFox (if present and necessary)
+//include dirname(__DIR__, 2) . DIRECTORY_SEPARATOR."ComFox".DIRECTORY_SEPARATOR.'Config'.DIRECTORY_SEPARATOR.'Constants.php';
+//include dirname(__DIR__, 2) . DIRECTORY_SEPARATOR."MailFox".DIRECTORY_SEPARATOR.'Config'.DIRECTORY_SEPARATOR.'Constants.php';
+
 // ComFox configuration
 define('COMFOX_AVAILABLE',FALSE);
 
@@ -72,8 +84,9 @@ define('SESSION_REMEMBER_ME', 'SESSION_REMEMBER_ME');
 define('USER_SEND_VERIFICATION_EMAIL_ON_CREATION', FALSE & COMFOX_AVAILABLE);
 define('USER_EMAIL_FORGET_PWD', FALSE & COMFOX_AVAILABLE);
 
+
 ////////////////////////////////////////////////
-// define linked to check email feature
+// Constants related to email verification features
 ////////////////////////////////////////////////
 define('ROUTE_VERIF_EMAIL_ACCOUNT','userVerifAccount');
 

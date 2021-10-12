@@ -26,7 +26,7 @@ class E_Notification extends \RFCore\Entities\E_Notification implements \Doctrin
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
@@ -66,10 +66,10 @@ class E_Notification extends \RFCore\Entities\E_Notification implements \Doctrin
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'nullableProperties', 'id'];
+            return ['__isInitialized__', 'nullableProperties', 'id', 'date', 'level', 'informations'];
         }
 
-        return ['__isInitialized__', 'nullableProperties', 'id'];
+        return ['__isInitialized__', 'nullableProperties', 'id', 'date', 'level', 'informations'];
     }
 
     /**
@@ -185,6 +185,39 @@ class E_Notification extends \RFCore\Entities\E_Notification implements \Doctrin
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'update', [$params]);
 
         return parent::update($params);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProperties()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperties', []);
+
+        return parent::getProperties();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProperty($propName, $asArray = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperty', [$propName, $asArray]);
+
+        return parent::getProperty($propName, $asArray);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDateProperty($propName, $dateString)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateProperty', [$propName, $dateString]);
+
+        return parent::setDateProperty($propName, $dateString);
     }
 
 }

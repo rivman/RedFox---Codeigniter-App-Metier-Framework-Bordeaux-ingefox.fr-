@@ -26,7 +26,7 @@ class E_BOUser extends \RFCore\Entities\E_BOUser implements \Doctrine\ORM\Proxy\
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
@@ -66,10 +66,10 @@ class E_BOUser extends \RFCore\Entities\E_BOUser implements \Doctrine\ORM\Proxy\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'nullableProperties', 'id', 'username', 'password'];
+            return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password'];
         }
 
-        return ['__isInitialized__', 'nullableProperties', 'id', 'username', 'password'];
+        return ['__isInitialized__', 'nullableProperties', 'id', 'email', 'password'];
     }
 
     /**
@@ -179,6 +179,17 @@ class E_BOUser extends \RFCore\Entities\E_BOUser implements \Doctrine\ORM\Proxy\
     /**
      * {@inheritDoc}
      */
+    public function update($params)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'update', [$params]);
+
+        return parent::update($params);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getId()
     {
         if ($this->__isInitialized__ === false) {
@@ -205,23 +216,23 @@ class E_BOUser extends \RFCore\Entities\E_BOUser implements \Doctrine\ORM\Proxy\
     /**
      * {@inheritDoc}
      */
-    public function getUsername()
+    public function getEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
 
-        return parent::getUsername();
+        return parent::getEmail();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setUsername($username): void
+    public function setEmail($email): void
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
 
-        parent::setUsername($username);
+        parent::setEmail($email);
     }
 
     /**
@@ -260,12 +271,34 @@ class E_BOUser extends \RFCore\Entities\E_BOUser implements \Doctrine\ORM\Proxy\
     /**
      * {@inheritDoc}
      */
-    public function update($params)
+    public function getProperties()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'update', [$params]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperties', []);
 
-        return parent::update($params);
+        return parent::getProperties();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProperty($propName, $asArray = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProperty', [$propName, $asArray]);
+
+        return parent::getProperty($propName, $asArray);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDateProperty($propName, $dateString)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateProperty', [$propName, $dateString]);
+
+        return parent::setDateProperty($propName, $dateString);
     }
 
 }

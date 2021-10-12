@@ -10,14 +10,14 @@
 <div class="row h-100 justify-content-center">
     <form id="formRegisterBOUser" accept-charset="utf-8">
     <div class="form-group">
-        <label>Nom d'utilisateur</label>
+        <label>Adresse email</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-<?php echo THEME_COLOR; ?>"> <i class="fa fa-user text-white"></i> </span>
             </div>
-            <input name="username" class="form-control" placeholder="Nom d'utilisateur" type="text" value="<?php echo set_value('username'); ?>">
+            <input name="email" class="form-control" placeholder="Adresse email" type="email" value="<?php echo set_value('email'); ?>">
         </div>
-        <?php if (isset($errors['username']))echo "<div class=\"alert alert-danger form-alert\" role=\"alert\">".$errors['username']."</div>"; ?>
+        <?php if (isset($errors['email']))echo "<div class=\"alert alert-danger form-alert\" role=\"alert\">".$errors['email']."</div>"; ?>
     </div>
     <div class="form-group">
         <label>Mot de passe</label>

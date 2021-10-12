@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\Column,
 use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
- * @Entity @Table(name="notifications")
+ * @Entity(repositoryClass="RFCore\Repositories\R_NotificationRepository") @Table(name="notifications")
  **/
 class E_Notification extends RF_Entity
 {
@@ -16,4 +16,13 @@ class E_Notification extends RF_Entity
 
     /** @Id @Column(type="integer") @GeneratedValue **/
 	protected $id;
+    
+    /** @column(type="date") */
+    protected $date;
+
+    /** @column(type="integer") */
+    protected $level;
+
+    /** @column(type="string") */
+    protected $informations;
 }

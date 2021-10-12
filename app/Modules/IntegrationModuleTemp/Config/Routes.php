@@ -47,7 +47,10 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', INTEGRATION_BASE_MODULE.'\Controllers\C_User::index');
+$routes->get('/', 'RFCore\Controllers\C_User::index');
+
+$routes->add('displayToast',INTEGRATION_BASE_MODULE.'\Controllers\C_Global::displayToast');
+$routes->add('EventStream',INTEGRATION_BASE_MODULE.'\Controllers\C_Global::eventStream');
 
 //--------------------------------------------------------------------
 // User Management
@@ -59,24 +62,20 @@ $routes->group('Users',
 	 */
 	function($routes)
 	{
-		$controllerPath = INTEGRATION_BASE_MODULE.'\Controllers\C_User';
+		$controllerPath = 'RFCore\Controllers\C_User';
 
 		$routes->add('login',$controllerPath.'::login');
 		$routes->add('logout',$controllerPath.'::logout');
 		$routes->add('forgottenPassword',$controllerPath.'::forgottenPassword');
 		$routes->add('newPassword',$controllerPath.'::newPassword');
 		$routes->add('switchActivationStatus/(:any)',$controllerPath.'::switchActivationStatus/$1');
-//		$routes->add('add',$controllerPath.'::add');
-//		$routes->add('edit',$controllerPath.'::edit');
-//		$routes->add('delete',$controllerPath.'::delete');
-//		$routes->add('manage',$controllerPath.'::manage');
-//		$routes->add('getList',$controllerPath.'::getList');
+		$routes->add('add',$controllerPath.'::add');
+		$routes->add('edit',$controllerPath.'::edit');
+		$routes->add('delete',$controllerPath.'::delete');
+		$routes->add('manage',$controllerPath.'::manage');
+		$routes->add('getList',$controllerPath.'::getList');
+		$routes->add('register',$controllerPath.'::register');
 	}
 );
 
-
-
-
-
 $routes->add('getUserList',INTEGRATION_BASE_MODULE.'\Controllers\C_User::getUserList');
-
